@@ -30,7 +30,7 @@ var options = {
   params: { key: `${recommendMusic(31)}`, locale: 'en-US' },
   headers: {
     'x-rapidapi-host': 'shazam.p.rapidapi.com',
-    'x-rapidapi-key': 'c6788426a3mshe4364197be85185p19b4aejsnc1f3eee9cae4',
+    'x-rapidapi-key': process.env.REACT_APP_API_KEY_SHAZAM, //eslint-disable-line
   },
 };
 
