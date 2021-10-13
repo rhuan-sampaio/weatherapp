@@ -1,11 +1,13 @@
-﻿const playlist = {
+﻿import { useEffect, useState } from 'react';
+const playlist = {
   lofi: '428558287',
-  classica: '55157283',
+  classica: '55157293',
   pop: '500174891',
   rock: '5167763',
 };
 
-function recommendMusic(num) {
+export function RecommendMusic(num) {
+  const [musicList, setMusicList] = useState([]);
   let key = '';
   if (num > 32) {
     key = playlist.rock;
@@ -19,26 +21,27 @@ function recommendMusic(num) {
   if (num <= 16) {
     key = playlist.lofi;
   }
-  return key;
+  const axios = require('axios').default;
+  console.log(key, num, 'playlist');
+  const options = {
+    method: 'GET',
+    url: 'https://shazam.p.rapidapi.com/songs/list-recommendations',
+    params: { key: key, locale: 'pt-BR' },
+    headers: {
+      'x-rapidapi-host': 'shazam.p.rapidapi.com',
+    "x-rapidapi-key": "c6788426a3mshe4364197be85185p19b4aejsnc1f3eee9cae4" //eslint-disable-line
+    },
+  };
+  useEffect(() => {
+    axios
+      .request(options)
+      .then(function (response) {
+        setMusicList(() => [...response.data.tracks]);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }, []);
+
+  return musicList;
 }
-
-var axios = require('axios').default;
-
-var options = {
-  method: 'GET',
-  url: 'https://shazam.p.rapidapi.com/songs/list-recommendations',
-  params: { key: `${recommendMusic(31)}`, locale: 'en-US' },
-  headers: {
-    'x-rapidapi-host': 'shazam.p.rapidapi.com',
-    'x-rapidapi-key': process.env.REACT_APP_API_KEY_SHAZAM, //eslint-disable-line
-  },
-};
-
-axios
-  .request(options)
-  .then(function (response) {
-    console.log(response.data);
-  })
-  .catch(function (error) {
-    console.error(error);
-  });

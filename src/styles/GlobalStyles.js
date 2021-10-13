@@ -17,6 +17,18 @@ export const Main = styled.main`
   background-attachment: fixed;
   background-size: cover;
   min-height: 100vh;
+  button {
+    padding: 10px;
+    background: #193a6e;
+    outline: none;
+    border: 0.5px solid #ddd;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 5px;
+    z-index: 999;
+  }
 `;
 export const Container = styled.section`
   min-height: 80vh;
