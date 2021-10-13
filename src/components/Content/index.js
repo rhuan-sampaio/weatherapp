@@ -39,7 +39,7 @@ export default function Content({ weatherData }) {
     <>
       <ContentContainer>
         <h1 className="city">
-          {city},{country}
+          {city},{''} {country}
         </h1>
 
         <div className="temp-div">

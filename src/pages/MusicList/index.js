@@ -10,10 +10,8 @@ export default function List() {
   const [listData, setListData] = useState(false);
   const list = useSelector((state) => state.list);
   const [modalOpen, setModalOpen] = useState(false);
-  console.log('a');
   useEffect(() => {
     setListData(list);
-    console.log('b', listData);
   }, [list]);
   return (
     <Main>
