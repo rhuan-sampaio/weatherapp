@@ -18,7 +18,7 @@ export default function MusicList({ content, index, modalController }) {
         {get(content, 'content.date', '')}: {get(content, 'content.temp', '')}º - {get(content, 'content.city', '')} -{' '}
         {get(content, 'content.gender', '')}
       </div>
-      <button onClick={(e) => handleDelete(e, index)}> DELETE </button>
+      <button onClick={(e) => handleDelete(e, index)}> Excluir </button>
     </div>
   );
 }

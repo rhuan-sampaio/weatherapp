@@ -56,6 +56,9 @@ export const Content = styled.section`
   background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
   border-radius: 2rem;
   backdrop-filter: blur(1rem);
+  display: flex;
+  flex-flow: column;
+  align-items: center;
 
   .content {
     padding: 20px;
@@ -69,6 +72,23 @@ export const Content = styled.section`
     cursor: pointer;
     &:hover {
       filter: opacity(0.5);
+    }
+  }
+  .link {
+    text-align: center;
+    width: 80%;
+    padding: 10px;
+    background: #193a6e;
+    outline: none;
+    border: 0.5px solid #ddd;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 5px;
+    z-index: 999;
+    &:hover {
+      filter: opacity(0.8);
     }
   }
   @media (min-width: 700px) {

@@ -57,7 +57,6 @@ export default function Content() {
     setCity(get(weatherData, 'name', ''));
     getDate(setDate);
     setGender(recommend(temp));
-    console.log(temp);
   });
 
   useEffect(() => {
@@ -83,7 +82,7 @@ export default function Content() {
       params: { key: key, locale: 'pt-BR' },
       headers: {
         'x-rapidapi-host': 'shazam.p.rapidapi.com',
-    "x-rapidapi-key": '4c10ea398emsh3b5541bf10c81fcp1264d8jsn26065526f89b' //eslint-disable-line
+        'x-rapidapi-key': process.env.REACT_APP_API_KEY_SHAZAM //eslint-disable-line
       },
     };
     axios

@@ -28,6 +28,9 @@ export const Main = styled.main`
     cursor: pointer;
     margin: 5px;
     z-index: 999;
+    &:hover {
+      filter: opacity(0.8);
+    }
   }
 `;
 export const Container = styled.section`
